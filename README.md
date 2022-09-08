@@ -1,16 +1,13 @@
-### Магазин
+### P2P platform
 
 ```mermaid
     erDiagram
-    PRODUCT ||--|{ SIZES :  contains
-    PRODUCT ||--|| BRAND :  contains
-    PRODUCT ||--|| TYPE :  contains
-    PRODUCT ||--|{ SEX :  contains
-    PRODUCT ||--|{ SEASON :  contains
-    PRODUCT ||--|{ COLOR :  contains
-    ORDER ||--|| DELIVERY : contains
-    ORDER ||--|| USER : contains
-    ORDER_PRODUCTS ||--|{ PRODUCT : contains
-    ORDER_PRODUCTS ||--|{ ORDER : contains
-    USER ||--o{ DELIVERY : save
+    CHAT ||--|{ USERS :  contains
+    USERS }|--|| CHAT :  contains
+    USERS ||--o{ ADS :  contains
+    ADS ||--|{ CATEGORY : contains
+    COMPLAINTS ||--|{ USERS : contains
+    COMPLAINTS ||--|{ ADS : contains
+    COMPLAINTS ||--|{ COMPLAINTS_TYPE : contains
+    
 ```
