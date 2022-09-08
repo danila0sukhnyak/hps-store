@@ -2,12 +2,16 @@
 
 ```mermaid
     erDiagram
-    CHAT ||--|{ USERS :  contains
-    USERS }|--|| CHAT :  contains
     USERS ||--o{ ADS :  contains
+    USERS ||--o{ DELIVERY :  contains
     ADS ||--|{ CATEGORY : contains
     COMPLAINTS ||--|{ USERS : contains
     COMPLAINTS ||--|{ ADS : contains
-    COMPLAINTS ||--|{ COMPLAINTS_TYPE : contains
-    
+    ORDER ||--|{ DELIVERY : contains
+    ORDER ||--|{ ADS : contains
+    ORDER ||--|{ USERS : contains
+    CHAT ||--|{ USERS :  contains
+    USERS }|--|| CHAT :  contains
 ```
+
+
