@@ -17,6 +17,12 @@
     ORDER }|--|{ PRODUCT: contains
     ORDER }|--|| USERS: contains
     ORDER ||--O| PAYMENT: contains
+    
+    ROLE }|--|{ USERS: contains
+    
+    DISPUTE ||--|| ORDER: contains
+    DISPUTE ||--|| PRODUCT: contains
+    DISPUTE ||--|| USERS: contains
 ```
 
 
