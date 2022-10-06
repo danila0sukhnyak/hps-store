@@ -7,22 +7,24 @@
     PRODUCT ||--|| USERS: contains
     PRODUCT }|--|| ORDER_PRODUCTS: contains
     
-    PRODUCT_PHOTOS }|--|| PHOTOS:  contains
-    COMMENT_PHOTOS }|--|| PHOTOS:  contains
+    PRODUCT_PHOTOS ||--|{ PHOTOS:  contains
+    COMMENT_PHOTOS ||--|{ PHOTOS:  contains
 
     COMMENTS ||--|| PRODUCT: contains
     COMMENTS ||--|| USERS: contains
-    COMMENTS ||--O| COMMENT_PHOTOS: contains
-    
+    COMMENTS }O--|| COMMENT_PHOTOS: contains
+
     CHAT ||--|{ USERS: contains
-    CHAT ||--|{ CHAT_MESSAGE: contains
-    CHAT ||--|{ CHAT_PHOTOS: contains
-    
+    CHAT }|--|| CHAT_MESSAGE: contains
+    CHAT }|--|| CHAT_PHOTOS: contains
+    CHAT_PHOTOS ||--|{ PHOTOS:  contains
+
     ORDER }|--|| ORDER_PRODUCTS: contains
     ORDER }|--|| USERS: contains
     ORDER ||--O| PAYMENT: contains
     
-    ROLE }|--|{ USERS: contains
+    ROLE }|--|| ROLE_USERS: contains
+    ROLE_USERS ||--|{ USERS: contains
     
     DISPUTE ||--|{ DISPUTE_MESSAGE: contains
     DISPUTE ||--|{ ORDER: contains
@@ -58,6 +60,11 @@
     ROLE{
         bigint id
         string name
+    }
+    
+    ROLE_USERS{
+        bigint userId
+        bigint roleId
     }
     
     USERS{
