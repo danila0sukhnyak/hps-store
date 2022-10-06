@@ -10,8 +10,8 @@
     PRODUCT_PHOTOS ||--|{ PHOTOS:  contains
     COMMENT_PHOTOS ||--|{ PHOTOS:  contains
 
-    COMMENTS ||--|| PRODUCT: contains
-    COMMENTS ||--|| USERS: contains
+    COMMENTS ||--|{ PRODUCT: contains
+    COMMENTS ||--|{ USERS: contains
     COMMENTS }O--|| COMMENT_PHOTOS: contains
 
     CHAT ||--|{ USERS: contains
@@ -84,6 +84,7 @@
     CHAT{
         bigint chatId
         bigint fromUserId
+        bigint toUserId
         bigint productId
     }
     CHAT_MESSAGE{
